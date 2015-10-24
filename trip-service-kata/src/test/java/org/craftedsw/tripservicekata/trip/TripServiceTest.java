@@ -1,16 +1,13 @@
 package org.craftedsw.tripservicekata.trip;
 
-import org.craftedsw.tripservicekata.exception.CollaboratorCallException;
-import org.craftedsw.tripservicekata.user.User;
-import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+        TripServiceWithAlternativeSessionWrappersTest.class,
+        TripServiceWithAlternativeTripDao.class,
+        TripServiceWithOutAlternativesWrapperTest.class
+})
 public class TripServiceTest {
-
-
-
-    @Test(expected = CollaboratorCallException.class)
-    public void whenCallGetTripByUserAlwaysThrowException(){
-        User user = new User();
-        new TripService().getTripsByUser(user);
-    }
 }
