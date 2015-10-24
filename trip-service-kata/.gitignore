@@ -1,0 +1,6 @@
+#IDE FILES
+.idea
+trip-service-kata.iml
+
+#COMPILED FILES
+target
