@@ -14,8 +14,10 @@ public class TripDaoWithResults implements TripDaoWrapper {
     private List<Trip> trips = new ArrayList<Trip>();
 
 
-    public List<Trip> findTripsByUser(User user) {
+    public TripDaoWithResults(){
         trips.add(new Trip());
+    }
+    public List<Trip> findTripsByUser(User user) {
         return trips;
     }
 }

@@ -13,6 +13,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+
 public class TripServiceWithAlternativeTripDao {
 
     private User user;
@@ -38,6 +39,7 @@ public class TripServiceWithAlternativeTripDao {
         configuredWrapperSelector.changeConfiguredWrapperWith(ConfiguredSessionWrapperSelector.LOGGED_USER_NOT_NULL);
         WrappersConfiguration.tripDaoWrapper  = new TripDaoWithResults();
         user.addFriend(WrappersConfiguration.userSessionWrapper.getLoggedUser());
-        assertThat(service.getTripsByUser(user), is(WrappersConfiguration.tripDaoWrapper.findTripsByUser(user)));
+        assertThat(service.getTripsByUser(user).size(), is(WrappersConfiguration.tripDaoWrapper.findTripsByUser(user).size()));
+        assertThat(service.getTripsByUser(user).get(0),is(WrappersConfiguration.tripDaoWrapper.findTripsByUser(user).get(0)));
     }
 }
